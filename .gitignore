@@ -5,6 +5,10 @@ __pycache__/
 
 .idea
 ckpt/*
+*.pt
+*.pth
+*.bin
+*.safetensors
 
 # C extensions
 *.so
