@@ -25,7 +25,9 @@ class ControlNetPipeline:
     def __init__(self):
         self.in_use = False
         self.controlnet = ControlNetModel.from_pretrained(
-        "BertChristiaens/controlnet-seg-room", torch_dtype=torch.float16)
+            "BertChristiaens/controlnet-seg-room",
+            torch_dtype=torch.float16
+        )
 
         self.pipe = StableDiffusionControlNetInpaintImg2ImgPipeline.from_pretrained(
             "runwayml/stable-diffusion-inpainting",

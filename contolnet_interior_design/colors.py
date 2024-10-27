@@ -38,7 +38,6 @@ OBJECTS = {
     "#00ADFF": "screen;door;screen",
 }
 
-
 SITTING = {
     "#0B66FF": "sofa;couch;lounge",
     "#CC4603": "chair",
@@ -70,7 +69,6 @@ CLOSETS = {
     "#0633FF": "chest;of;drawers;chest;bureau;dresser",
     "#0000FF": "case;display;case;showcase;vitrine",
 }
-
 
 BATHROOM = {
     "#6608FF": "bathtub;bathing;tub;bath;tub",
@@ -129,23 +127,22 @@ OFFICE = {
     "#005CFF": "monitor;monitoring;device",
 }
 
-
 COLOR_MAPPING_CATEGORY_ = {
- 'keep background': {'#FFFFFF': 'background'},   
- 'trivia': TRIVIA,
- 'objects': OBJECTS,
- 'sitting': SITTING,
- 'lighting': LIGHTING,
- 'tables': TABLES,
- 'closets': CLOSETS,
- 'bathroom': BATHROOM,
- 'windows': WINDOWS,
- 'floor': FLOOR,
- 'interior': INTERIOR,
- 'kitchen': KITCHEN,
- 'livingroom': LIVINGROOM,
- 'office': OFFICE}
-
+    'keep background': {'#FFFFFF': 'background'},
+    'trivia': TRIVIA,
+    'objects': OBJECTS,
+    'sitting': SITTING,
+    'lighting': LIGHTING,
+    'tables': TABLES,
+    'closets': CLOSETS,
+    'bathroom': BATHROOM,
+    'windows': WINDOWS,
+    'floor': FLOOR,
+    'interior': INTERIOR,
+    'kitchen': KITCHEN,
+    'livingroom': LIVINGROOM,
+    'office': OFFICE
+}
 
 COLOR_MAPPING_ = {
     '#FFFFFF': 'background',
@@ -300,6 +297,18 @@ COLOR_MAPPING_ = {
     "#66FF00": "clock",
     "#5C00FF": "flag",
 }
+
+
+def to_rgb(color: str) -> tuple:
+    return tuple(int(color[i:i+2], 16) for i in (1, 3, 5))
+
+
+COLOR_MAPPING_RGB = {to_rgb(k): v for k, v in COLOR_MAPPING_.items()}
+
+
+def map_colors_rgb(color: tuple) -> str:
+    return COLOR_MAPPING_RGB[color]
+
 
 def ade_palette() -> List[List[int]]:
     """ADE20K palette that maps each class to RGB values."""
